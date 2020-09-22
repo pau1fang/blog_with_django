@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block link %}
+<link href="{% static 'account/css/login.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block container %}
+<section>
+    <div class="container">
+
+        <form class="form-signin" name="loginform" id="loginform" action="{% url 'account:login' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="inputUsername">username</label>
+                <input type="text" name="username" id="inputUsername" class="form-control" value="" size="20" required>
+                <!--{{ form.username.errors }}-->
+                <!--{{ form.username.label_tag }}-->
+                <!--{{ form.username }}-->
+            </div>
+            <div class="form-group">
+                <label for="inputPassword">Password</label>
+                <!--{{ form.password.errors }}-->
+                <!--{{ form.password.label_tag }}-->
+                <a class="form-sublink" href="#">Forgot password?</a>
+                <input type="password" name="password" id="inputPassword" class="form-control" value="" size="20" required>
+                <!--{{ form.password }}-->
+            </div>
+
+            <p class="login-remember"><label><input name="rememberme" type="checkbox" id="rememberme" value="forever"> Remember Me</label></p>
+            <div class="form-group">
+                <input type="hidden" name="next" value="{{ redirect_to }}">
+                <input type="submit" name="wp-submit" id="wp-submit" class="btn btn-brand btn-block mb-4" value="Sign In">
+            </div>
+
+        </form>
+
+    </div>
+</section>
+
+
+{% endblock %}

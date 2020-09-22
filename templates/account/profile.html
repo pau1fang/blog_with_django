@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load account_tags %}
+{% block container %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <img class="img-rounded profile-thumbnail pull-left" style="margin:0 20px 0 0" src="{{ user|gravatar:'256' }}">
+        </div>
+        <div class="col-md-8">
+            <div>
+                <h1>{{ user.username }}!</h1>
+                <ul>
+                    <li>address:</li>
+                    <li>nickname:</li>
+                    <li>email:{{user.email}}</li>
+                    <li>last_login:{{ user.last_login|date:"Y-m-d H:i" }}</li>
+                </ul>
+                <a type="button" class="btn btn-primary" href="#">edit my profile</a>
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}
+
+
+</div>
+<div class="clearfix"></div>
+<div class="divider"></div>

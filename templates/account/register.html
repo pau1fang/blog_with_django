@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block link %}
+<link href="{% static 'account/css/login.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block container %}
+<section>
+    <div class="container">
+
+        <form class="form-signin" name="registerform" id="registerform" action="{% url 'account:register' %}" method="post">
+            {% load account_tags %}
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.username.errors }}
+                {{ form.username|label_with_classes }}
+                {{ form.username }}
+            </div>
+
+            <div class="form-group">
+                {{ form.email.errors }}
+                {{ form.email|label_with_classes }}
+                {{ form.email }}
+            </div>
+
+            <div class="form-group">
+                {{ form.password1.errors }}
+                {{ form.password1|label_with_classes }}
+                {{ form.password1 }}
+            </div>
+
+            <div class="form-group">
+                {{ form.password2.errors }}
+                {{ form.password2|label_with_classes }}
+                {{ form.password2 }}
+            </div>
+
+            <div class="form-group">
+                <input type="submit" name="wp-submit" id="wp-submit" class="btn btn-brand btn-block mb-4" value="注册">
+                <input type="hidden" name="redirect_to" value="#">
+            </div>
+
+        </form>
+
+    </div><!-- /.container -->
+</section>
+
+
+{% endblock %}
