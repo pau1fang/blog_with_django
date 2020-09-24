@@ -1,0 +1,24 @@
+{% if user.is_authenticated %}
+    <div>
+        <form action="{% url 'comments:post_comment' article.id %}" method="POST">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="body" hidden></label>
+                {{ comment_form.media }}
+                {{ comment_form.body }}
+            </div>
+
+            <!-- 提交按钮 -->
+            <button type="submit" class="btn btn-primary ">提交评论</button>
+
+        </form>
+    </div>
+    <br>
+{% else %}
+    <br>
+    <h5 class="row justify-content-center">
+        请<a href="{% url 'account:login' %}">登录</a>后回复
+    </h5>
+    <br>
+{% endif %}

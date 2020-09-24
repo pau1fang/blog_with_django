@@ -1,0 +1,20 @@
+
+html {
+    position: relation;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom:60px;
+}
+
+.navbar {
+    border-bottom: 1px solid #E5E9EF;
+}
+
+.footer {
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    color: #59626D;
+}

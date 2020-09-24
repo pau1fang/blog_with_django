@@ -1,0 +1,21 @@
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        {% if page_obj.has_previous and previous_url %}
+        <li class="page-item">
+            <a class="page-link" href="?{% if s %}s={{ s }}&{% endif %}page={{ previous_number }}" aria-label="Previous">
+                <span aria-hidden="true">上一页</span>
+            </a>
+        </li>
+        {% endif %}
+
+        <li class="page-item"><a class="page-link" href="#">{{ page_obj.number }}</a></li>
+
+        {% if page_obj.has_next and next_url %}
+        <li class="page-item"  style="float:right;">
+            <a class="page-link" href="?{% if s %}s={{ s }}&{% endif %}page={{ next_number }}" aria-label="Next">
+                <span aria-hidden="true">下一页</span>
+            </a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>

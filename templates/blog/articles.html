@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+{% load article_tags %}
+
+
+{% block container %}
+<div class="container" style="padding-top:20px;">
+    {% if s %}
+    {% if articles %}
+        <h4><span style="color: red">"{{ s }}"</span>的搜索结果如下：</h4>
+    {% else %}
+        <h4>暂无<span style="color: red">"{{ s }}"</span>相关的内容。</h4>
+    {% endif %}
+    {% endif %}
+
+    <div class="row">
+        <div class="col-8">
+            {% include 'blog/_articles.html' %}
+        </div>
+        <div class="col-4"></div>
+    </div>
+
+
+
+{% load_pagination page_obj s %}
+
+
+</div>
+{% endblock %}

@@ -1,17 +1,17 @@
 {% load account_tags %}
 <nav class="navbar navbar-expand-md navbar-light">
     <div class="container">
-        <a href="{% url 'blog:article_list' %}" class="navbar-brand">Blog</a>
+        <a href="{% url 'articles:article_list' %}" class="navbar-brand">Blog</a>
             <div class="d-flex ml-auto">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#globalNavbar" aria-controls="globalNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             </div>
             <div class="collapse navbar-collapse" id="globalNavbar">
-                <form class="form-inline form-navbar my-2 my-lg-0 order-2" action="{% url 'blog:articles_list' %}">
+                <form class="form-inline form-navbar my-2 my-lg-0 order-2" action="{% url 'articles:articles_list' %}">
                     <input class="form-control" name="s" type="text" placeholder="{% if s %}{{ s }}{% else %}搜索{% endif %}"/>
                 </form>
                 <ul class="navbar-nav mr-auto order-1">
-                    <li class="nav-item"><a class="nav-link" href="{% url 'blog:article_list' %}">博客列表</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'blog:article_created' %}">新建博客</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'articles:article_list' %}">博客列表</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">新建博客</a></li>
                 </ul>
                 <ul class="navbar-nav d-none d-md-flex ml-2 order-3">
                     {% if user.is_authenticated %}

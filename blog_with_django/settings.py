@@ -24,6 +24,7 @@ SECRET_KEY = 'ku-t9eyg16&@5)xyrj!6t4mxozs$hnyms+45q#!frz1==22q3_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+API_FLAG = True
 
 ALLOWED_HOSTS = []
 AUTH_USER_MODEL = 'account.BlogUser'
@@ -39,6 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'account.apps.AccountConfig',
+    'articles.apps.ArticlesConfig',
+    'comments.apps.CommentsConfig',
+    # 'api.apps.ApiConfig',
+    'mdeditor',
+    'ckeditor',
+    # 'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -126,3 +133,37 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    (os.path.join(BASE_DIR, 'static')),
+)
+
+X_FRAME_OPTIONS = 'ALLOWALL url'
+
+# django-ckeditor配置
+CKEDITOR_CONFIGS = {
+
+    'default': {
+        'width':'auto',
+        'height':'250px',
+        'tabSpaces': 4,
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Smiley', 'CodeSnippet'],
+            ['Bold', 'Italic', 'Underline', 'RemoveFormat', 'Blockquote'],
+            ['TextColor', 'BGColor'],
+            ['Link', 'Unlink'],
+            ['NumberedList', 'BulletedList'],
+            ['Maximize']
+        ],
+
+        'extraPlugins': ','.join(['codesnippet']),
+    }
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASS': [
+        'rest_framework.permissions.IsAdminUser',
+    ],
+    'PAGE_SIZE': 10
+}

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+
+{% block container %}
+<div class="container center">
+    <div class="row">
+        <div class="col-8">
+            <br>
+            <!-- 提交文章的表单 -->
+
+
+            <form method="post" action="{% url 'articles:article_created' %}">
+                <!-- Django中需要POST数据的地方都必须有csrf_token -->
+                {% csrf_token %}
+                <!-- 文章标题 -->
+                <div class="form-group">
+                    <label for="title">文章标题</label>
+                    <input type="text" class="form-control" id="title" name="title">
+                </div>
+
+
+                <!-- 文章正文 -->
+                <div class="form-group">
+                    <label for="body">文章正文</label>
+                    <textarea class="form-control" id="body" name="body" rows="12"></textarea>
+                </div>
+
+                    <!-- 文章栏目 -->
+                <div class="form-group">
+                    <label for="category">分类</label>
+                    <select class="form-control" id="category" name="category">
+                        <option value="none">请选择类别..</option>
+                        {% for category in categorys %}
+                        <option value="{{ category.id }}">{{ category }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                    <!-- 文章标签 -->
+                <div class="form-group">
+                    <label for="tags">标签</label>
+                    <input type="text" class="form-control col-3" id="tags" name="tags">
+                </div>
+
+                <!-- 提交按钮 -->
+                <button type="submit" class="btn btn-primary">完成</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
