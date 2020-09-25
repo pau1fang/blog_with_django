@@ -10,6 +10,10 @@ from markdown.extensions.toc import TocExtension
 from django.utils.text import slugify
 from comments.models import Comment
 from comments.forms import CommentForm
+import logging
+
+
+logger = logging.getLogger(__name__)
 
 
 class ArticleList(generic.ListView):
