@@ -85,11 +85,11 @@ WSGI_APPLICATION = 'blog_with_django.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'blog_with_django',
-        'USER': 'root',
-        'HOST': 'localhost',
-        'PORT': '3306',
-        'PASSWORD': '123456',
+        'NAME': os.environ.get('BLOG_MYSQL_DATABASE') or 'blog_with_django',
+        'USER': os.environ.get('BLOG_MYSQL_USER') or 'root',
+        'HOST': os.environ.get('BLOG_MYSQL_PORT_3306_TCP_ADDR') or '127.0.0.1',
+        'PORT': os.environ.get('BLOG_MYSQL_PORT_3306_TCP_PORT') or 3306,
+        'PASSWORD': os.environ.get('BLOG_MYSQL_ENV_MYSQL_ROOT_PASSWORD') or '123456',
         'OPTIONS': {'charset': 'utf8'}
     }
 }
@@ -144,8 +144,8 @@ X_FRAME_OPTIONS = 'ALLOWALL url'
 CKEDITOR_CONFIGS = {
 
     'default': {
-        'width':'auto',
-        'height':'250px',
+        'width': 'auto',
+        'height': '250px',
         'tabSpaces': 4,
         'toolbar': 'Custom',
         'toolbar_Custom': [
@@ -172,19 +172,19 @@ LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-        },
+        # 'console': {
+        #     'class': 'logging.StreamHandler',
+        # },
         'file': {
-            'level': 'DEBUG',
+            'level': 'INFO',
             'class': 'logging.FileHandler',
             'filename': os.path.join(BASE_DIR, 'logs/debug.log')
         }
     },
-    'root': {
-        'handlers': ['console'],
-        'level': 'WARNING',
-    },
+    # 'root': {
+    #     'handlers': ['console'],
+    #     'level': 'WARNING',
+    # },
     'loggers': {
         'django': {
             'handlers': ['file'],

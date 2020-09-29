@@ -1121,3 +1121,39 @@ File C:\ProgramData\Anaconda3\envs\ll_env\Lib\site-packages\django\db\backends\m
 File C:\ProgramData\Anaconda3\envs\ll_env\Lib\site-packages\django\middleware\clickjacking.py first seen with mtime 1583245149.3883026
 File C:\ProgramData\Anaconda3\envs\ll_env\Lib\site-packages\django\contrib\admin\migrations\0001_initial.py first seen with mtime 1583245145.035895
 File C:\ProgramData\Anaconda3\envs\ll_env\Lib\site-packages\django\contrib\auth\migrations\__init__.py first seen with mtime 1583245146.081097
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2020-09-25 23:31:32.747240' AND `django_session`.`session_key` = '2is24xn555nczbdowki6pight153om4e') LIMIT 21; args=('2020-09-25 23:31:32.747240', '2is24xn555nczbdowki6pight153om4e')
+(0.000) SELECT `account_bloguser`.`id`, `account_bloguser`.`password`, `account_bloguser`.`last_login`, `account_bloguser`.`is_superuser`, `account_bloguser`.`username`, `account_bloguser`.`first_name`, `account_bloguser`.`last_name`, `account_bloguser`.`email`, `account_bloguser`.`is_staff`, `account_bloguser`.`is_active`, `account_bloguser`.`date_joined`, `account_bloguser`.`nickname`, `account_bloguser`.`avatar_hash`, `account_bloguser`.`created_time`, `account_bloguser`.`modify_time` FROM `account_bloguser` WHERE `account_bloguser`.`id` = 1 LIMIT 21; args=(1,)
+(0.000) SELECT `django_admin_log`.`id`, `django_admin_log`.`action_time`, `django_admin_log`.`user_id`, `django_admin_log`.`content_type_id`, `django_admin_log`.`object_id`, `django_admin_log`.`object_repr`, `django_admin_log`.`action_flag`, `django_admin_log`.`change_message`, `account_bloguser`.`id`, `account_bloguser`.`password`, `account_bloguser`.`last_login`, `account_bloguser`.`is_superuser`, `account_bloguser`.`username`, `account_bloguser`.`first_name`, `account_bloguser`.`last_name`, `account_bloguser`.`email`, `account_bloguser`.`is_staff`, `account_bloguser`.`is_active`, `account_bloguser`.`date_joined`, `account_bloguser`.`nickname`, `account_bloguser`.`avatar_hash`, `account_bloguser`.`created_time`, `account_bloguser`.`modify_time`, `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_admin_log` INNER JOIN `account_bloguser` ON (`django_admin_log`.`user_id` = `account_bloguser`.`id`) LEFT OUTER JOIN `django_content_type` ON (`django_admin_log`.`content_type_id` = `django_content_type`.`id`) WHERE `django_admin_log`.`user_id` = 1 ORDER BY `django_admin_log`.`action_time` DESC LIMIT 10; args=(1,)
+"GET /admin/ HTTP/1.1" 200 8175
+File C:\ProgramData\Anaconda3\envs\ll_env\Lib\site-packages\django\contrib\sessions\serializers.py first seen with mtime 1583245148.2339005
+File C:\ProgramData\Anaconda3\envs\ll_env\Lib\site-packages\django\contrib\messages\storage\cookie.py first seen with mtime 1583245147.6410995
+File C:\ProgramData\Anaconda3\envs\ll_env\Lib\site-packages\django\conf\locale\en\formats.py first seen with mtime 1583245143.943893
+File C:\ProgramData\Anaconda3\envs\ll_env\Lib\site-packages\django\template\loaders\__init__.py first seen with mtime 1583245149.4195027
+File C:\ProgramData\Anaconda3\envs\ll_env\Lib\site-packages\django\contrib\messages\context_processors.py first seen with mtime 1583245147.6410995
+File C:\ProgramData\Anaconda3\envs\ll_env\Lib\site-packages\django\template\loaders\base.py first seen with mtime 1583245149.4195027
+File C:\ProgramData\Anaconda3\envs\ll_env\Lib\site-packages\django\contrib\messages\utils.py first seen with mtime 1583245147.6410995
+File C:\ProgramData\Anaconda3\envs\ll_env\Lib\site-packages\django\contrib\auth\context_processors.py first seen with mtime 1583245145.706696
+File C:\ProgramData\Anaconda3\envs\ll_env\Lib\site-packages\django\template\loaders\app_directories.py first seen with mtime 1583245149.4195027
+File C:\ProgramData\Anaconda3\envs\ll_env\Lib\site-packages\django\conf\locale\en\__init__.py first seen with mtime 1583245143.943893
+File C:\ProgramData\Anaconda3\envs\ll_env\Lib\site-packages\django\contrib\messages\storage\base.py first seen with mtime 1583245147.6410995
+File C:\ProgramData\Anaconda3\envs\ll_env\Lib\site-packages\django\contrib\messages\storage\fallback.py first seen with mtime 1583245147.6410995
+File C:\ProgramData\Anaconda3\envs\ll_env\Lib\site-packages\django\template\loaders\filesystem.py first seen with mtime 1583245149.4351027
+File C:\ProgramData\Anaconda3\envs\ll_env\Lib\site-packages\django\contrib\messages\storage\session.py first seen with mtime 1583245147.6410995
+File C:\ProgramData\Anaconda3\envs\ll_env\Lib\site-packages\django\template\context_processors.py first seen with mtime 1583245149.3883026
+File D:\python_projects\blog_with_django\blog_with_django\settings.py previous mtime: 1601047072.4613233, current mtime: 1601047944.0051727
+D:\python_projects\blog_with_django\blog_with_django\settings.py notified as changed. Signal results: [(<function translation_file_changed at 0x000000000421F620>, None)].
+D:\python_projects\blog_with_django\blog_with_django\settings.py changed, reloading.
+Watching for file changes with StatReloader
+D:\python_projects\blog_with_django\blog_with_django\settings.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /admin/ HTTP/1.1" 200 8175
+D:\python_projects\blog_with_django\blog_with_django\settings.py changed, reloading.
+Watching for file changes with StatReloader
+D:\python_projects\blog_with_django\blog_with_django\settings.py changed, reloading.
+Watching for file changes with StatReloader
+D:\python_projects\blog_with_django\blog_with_django\settings.py changed, reloading.
+Watching for file changes with StatReloader
+D:\python_projects\blog_with_django\blog_with_django\settings.py changed, reloading.
+Watching for file changes with StatReloader
