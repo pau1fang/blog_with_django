@@ -23,10 +23,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ku-t9eyg16&@5)xyrj!6t4mxozs$hnyms+45q#!frz1==22q3_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 API_FLAG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 AUTH_USER_MODEL = 'account.BlogUser'
 
 
@@ -86,10 +86,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': os.environ.get('BLOG_MYSQL_DATABASE') or 'blog_with_django',
-        'USER': os.environ.get('BLOG_MYSQL_USER') or 'root',
-        'HOST': os.environ.get('BLOG_MYSQL_PORT_3306_TCP_ADDR') or '127.0.0.1',
-        'PORT': os.environ.get('BLOG_MYSQL_PORT_3306_TCP_PORT') or 3306,
-        'PASSWORD': os.environ.get('BLOG_MYSQL_ENV_MYSQL_ROOT_PASSWORD') or '123456',
+        'USER': os.environ.get('BLOG_MYSQL_USER') or 'dbuser',
+        'HOST': 'db',
+        'PORT': 3306,
+        'PASSWORD': os.environ.get('BLOG_MYSQL_PASSWORD') or 'password',
         'OPTIONS': {'charset': 'utf8'}
     }
 }
@@ -132,11 +132,12 @@ USE_TZ = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (
-    (os.path.join(BASE_DIR, 'static')),
-)
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = '/media/'
+
 
 X_FRAME_OPTIONS = 'ALLOWALL url'
 
@@ -192,4 +193,15 @@ LOGGING = {
             'propagate': True,
         },
     },
+}
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://redis:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            "PASSWORD": "foobared",
+        },
+    }
 }
