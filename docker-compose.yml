@@ -1,0 +1,66 @@
+version: "3.8"
+
+volumes: # 自定义数据卷，位于宿主机/var/lib/docker/volumes内
+  blog_db_vol: # 定义数据卷同步容器内mysql数据
+  blog_redis_vol: # 定义数据卷同步redis容器内数据
+  blog_media_vol: # 定义数据卷同步media文件夹数据
+
+services:
+  redis:
+    image: redis:5
+    command: redis-server /etc/redis/redis.conf # 容器启动后启动redis服务器
+    volumes:
+      - blog_redis_vol:/data # 通过挂载给redis数据备份
+      - ./compose/redis/redis.conf:/etc/redis/redis.conf # 挂载redis配置文件
+    ports:
+      - "6379:6379"
+    restart: always # always表容器运行发生错误时一直重启
+
+  db:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456 # 数据库密码
+      - MYSQL_DATABASE=blog_with_django # 数据库名称
+      - MYSQL_USER=dbuser # 用户名
+      - MYSQL_PASSWORD=password # 用户密码
+
+    volumes:
+      - blog_db_vol:/var/lib/mysql:rw # 挂载数据库数据, 可读可写
+      - ./compose/mysql/conf/my.cnf:/etc/mysql/my.cnf # 挂载配置文件
+      - ./compose/mysql/init:/docker-entrypoint-initdb.d/ # 挂载数据初始化sql脚本
+    ports:
+      - "3306:3306" # 与配置文件保持一致
+    restart: always
+
+  web:
+    build: .
+    expose:
+      - "8000"
+    volumes:
+      - .:/code/blog_with_django
+      - blog_media_vol:/code/blog_with_django/media
+      - ./compose/uwsgi:/tmp
+    depends_on:
+      - db
+      - redis
+    environment:
+      - DEBUG=False
+    restart: always
+    tty: true
+    stdin_open: true
+
+  nginx:
+    build: ./compose/nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    expose:
+      - "80"
+    volumes:
+      - ./static:/usr/share/nginx/html/static
+      - ./compose/nginx/ssl:/usr/share/nginx/ssl
+      - ./compose/nginx/log:/var/log/nginx
+      - blog_media_vol:/usr/share/nginx/html/media
+    depends_on:
+      - web
+    restart: always

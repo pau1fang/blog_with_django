@@ -1,0 +1,4 @@
+2020/10/11 08:28:04 [error] 19#19: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 192.168.128.1, server: localhost, request: "GET / HTTP/1.1", upstream: "uwsgi://192.168.128.4:8000", host: "127.0.0.1"
+2020/10/11 08:28:11 [error] 19#19: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 192.168.128.1, server: localhost, request: "GET / HTTP/1.1", upstream: "uwsgi://192.168.128.4:8000", host: "127.0.0.1"
+2020/10/11 08:50:18 [error] 20#20: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 192.168.160.1, server: localhost, request: "GET / HTTP/1.1", upstream: "uwsgi://192.168.160.4:8000", host: "127.0.0.1"
+2020/10/11 08:56:46 [error] 19#19: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 192.168.176.1, server: localhost, request: "GET / HTTP/1.1", upstream: "uwsgi://192.168.176.4:8000", host: "127.0.0.1"

@@ -1157,3 +1157,19 @@ D:\python_projects\blog_with_django\blog_with_django\settings.py changed, reload
 Watching for file changes with StatReloader
 D:\python_projects\blog_with_django\blog_with_django\settings.py changed, reloading.
 Watching for file changes with StatReloader
+Invalid HTTP_HOST header: '127.0.0.1'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Bad Request: /
+Invalid HTTP_HOST header: '127.0.0.1'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Bad Request: /admin
+Invalid HTTP_HOST header: '127.0.0.1'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Bad Request: /article
+Invalid HTTP_HOST header: '127.0.0.1'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Bad Request: /articles
+Invalid HTTP_HOST header: '127.0.0.1'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Bad Request: /account
+Invalid HTTP_HOST header: '127.0.0.1'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Bad Request: /account/register
+Invalid HTTP_HOST header: '192.168.31.70'. You may need to add '192.168.31.70' to ALLOWED_HOSTS.
+Bad Request: /
+Invalid HTTP_HOST header: '192.168.31.70'. You may need to add '192.168.31.70' to ALLOWED_HOSTS.
+Bad Request: /favicon.ico
